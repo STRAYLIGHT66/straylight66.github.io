@@ -1,0 +1,237 @@
+/**
+ * Team Blog - 团队页面样式
+ */
+
+.page-header {
+    padding: 100px 0 50px;
+    background: var(--bg-secondary);
+    text-align: center;
+}
+
+.page-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.page-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+}
+
+/* ==================== 团队介绍 ==================== */
+.team-intro {
+    padding: 70px 0;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.intro-content h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.intro-content p {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    line-height: 1.8;
+}
+
+.intro-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 28px;
+}
+
+.intro-stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+}
+
+.intro-image {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* ==================== 团队成员 ==================== */
+.team-members {
+    padding: 70px 0;
+    background: var(--bg-secondary);
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.member-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 20px 50px var(--shadow-color);
+}
+
+.member-avatar {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    padding: 22px;
+    text-align: center;
+}
+
+.member-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.member-role {
+    color: var(--accent-primary);
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+}
+
+.member-bio {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.member-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.member-social .social-link {
+    width: 38px;
+    height: 38px;
+}
+
+/* ==================== 加入我们 ==================== */
+.join-us {
+    padding: 70px 0;
+}
+
+.join-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 56px 64px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: var(--radius-xl);
+    color: white;
+}
+
+.join-content h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.join-content p {
+    opacity: 0.9;
+    margin-bottom: 24px;
+    max-width: 460px;
+    line-height: 1.6;
+}
+
+.join-content .btn {
+    background: white;
+    color: var(--accent-primary);
+}
+
+.join-content .btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.join-decoration {
+    font-size: 6rem;
+    opacity: 0.2;
+}
+
+/* ==================== 移动端适配 ==================== */
+@media (max-width: 1024px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .intro-image {
+        order: -1;
+    }
+    
+    .intro-stats {
+        justify-content: center;
+    }
+    
+    .join-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+    }
+    
+    .join-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .intro-stats {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+}

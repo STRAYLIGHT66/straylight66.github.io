@@ -1,0 +1,167 @@
+/**
+ * Team Blog - 搜索组件样式
+ */
+
+/* ==================== 搜索遮罩 ==================== */
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==================== 搜索容器 ==================== */
+.search-container {
+    width: 100%;
+    max-width: 560px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.search-close {
+    position: absolute;
+    top: -60px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.35rem;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.search-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================== 搜索框 ==================== */
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    font-size: 1.15rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 18px 18px 18px 52px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px var(--glow-color);
+}
+
+/* ==================== 搜索结果 ==================== */
+.search-results {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    display: block;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: var(--bg-hover);
+}
+
+.search-result-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.search-result-excerpt {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ==================== 状态提示 ==================== */
+.search-empty,
+.search-loading,
+.search-error {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.search-loading i {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* ==================== 查看更多 ==================== */
+.search-results-more {
+    padding: 14px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.search-results-more a {
+    color: var(--accent-primary);
+    font-size: 0.9rem;
+}
+
+.search-results-more a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== 移动端适配 ==================== */
+@media (max-width: 640px) {
+    .search-overlay {
+        padding-top: 60px;
+    }
+
+    .search-close {
+        top: -50px;
+    }
+
+    .search-input {
+        padding: 16px 16px 16px 48px;
+        font-size: 1rem;
+    }
+}

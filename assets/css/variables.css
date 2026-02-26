@@ -1,0 +1,161 @@
+/**
+ * Team Blog - CSS 变量主题系统
+ * 定义5种主题配色方案
+ */
+
+/* ==================== 基础变量 ==================== */
+:root {
+    /* 字体 */
+    --font-primary: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    --font-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
+
+    /* 尺寸 */
+    --header-height: 64px;
+    --sidebar-width: 280px;
+    --max-content-width: 1200px;
+
+    /* 圆角 */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+
+    /* 过渡 */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.4s ease;
+}
+
+/* ==================== 主题1：暗黑 (Dark) ==================== */
+[data-theme="dark"] {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a25;
+    --bg-card: #151520;
+    --bg-hover: #252535;
+
+    --text-primary: #f0f0f5;
+    --text-secondary: #a0a0b0;
+    --text-tertiary: #606070;
+
+    --accent-primary: #ff6b35;
+    --accent-secondary: #ff8c5a;
+    --accent-hover: #ff8550;
+
+    --icon-color: #c0c0d0;
+    --icon-hover: #ff6b35;
+
+    --border-color: #2a2a3a;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --glow-color: rgba(255, 107, 53, 0.25);
+}
+
+/* ==================== 主题2：明亮 (Light) ==================== */
+[data-theme="light"] {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f3f5;
+    --bg-card: #ffffff;
+    --bg-hover: #e9ecef;
+
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-tertiary: #868e96;
+
+    --accent-primary: #0066cc;
+    --accent-secondary: #339af0;
+    --accent-hover: #0052a3;
+
+    --icon-color: #495057;
+    --icon-hover: #0066cc;
+
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --glow-color: rgba(0, 102, 204, 0.15);
+}
+
+/* ==================== 主题3：海洋 (Ocean) ==================== */
+[data-theme="ocean"] {
+    --bg-primary: #0d1b2a;
+    --bg-secondary: #1b263b;
+    --bg-tertiary: #253551;
+    --bg-card: #162035;
+    --bg-hover: #2d4a6f;
+
+    --text-primary: #e0e6ed;
+    --text-secondary: #9fb3c8;
+    --text-tertiary: #5d7a99;
+
+    --accent-primary: #ff6b35;
+    --accent-secondary: #ff8c5a;
+    --accent-hover: #ff8550;
+
+    --icon-color: #778da9;
+    --icon-hover: #ff6b35;
+
+    --border-color: #415a77;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --glow-color: rgba(255, 107, 53, 0.25);
+}
+
+/* ==================== 主题4：活力 (Vibrant) - 优化版 ==================== */
+[data-theme="vibrant"] {
+    /* 深色背景 + 橙色点缀，避免全屏橙色 */
+    --bg-primary: #1a1512;
+    --bg-secondary: #231c18;
+    --bg-tertiary: #2d2420;
+    --bg-card: #261f1b;
+    --bg-hover: #3d322c;
+
+    --text-primary: #f5f0ed;
+    --text-secondary: #c4b8b0;
+    --text-tertiary: #8a7d75;
+
+    /* 橙色作为强调色 */
+    --accent-primary: #ff7a45;
+    --accent-secondary: #ff9f7a;
+    --accent-hover: #ff6b35;
+
+    --icon-color: #d4a88c;
+    --icon-hover: #ff7a45;
+
+    --border-color: #3d322c;
+    --shadow-color: rgba(255, 122, 69, 0.15);
+    --glow-color: rgba(255, 122, 69, 0.2);
+}
+
+/* ==================== 主题5：优雅 (Elegant) - 优化版 ==================== */
+[data-theme="elegant"] {
+    /* 深色背景 + 紫色点缀，避免全屏紫色 */
+    --bg-primary: #131018;
+    --bg-secondary: #1a1620;
+    --bg-tertiary: #231d2b;
+    --bg-card: #1e1926;
+    --bg-hover: #322a3d;
+
+    --text-primary: #f0ebf5;
+    --text-secondary: #c4b8d4;
+    --text-tertiary: #8a7d99;
+
+    /* 鸢尾花紫作为强调色 */
+    --accent-primary: #9b7cb6;
+    --accent-secondary: #b89fd4;
+    --accent-hover: #8a6aa8;
+
+    --icon-color: #a690c2;
+    --icon-hover: #9b7cb6;
+
+    --border-color: #3d3451;
+    --shadow-color: rgba(155, 124, 182, 0.15);
+    --glow-color: rgba(155, 124, 182, 0.2);
+}
+
+/* ==================== 主题过渡动画 ==================== */
+body {
+    transition: background-color var(--transition-normal),
+        color var(--transition-normal);
+}
+
+body.theme-transitioning {
+    transition: opacity 0.15s ease;
+}

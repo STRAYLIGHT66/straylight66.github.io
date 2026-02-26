@@ -1,0 +1,363 @@
+/**
+ * Team Blog - 主题切换器样式
+ * 修复视觉反馈问题和齿轮样式
+ */
+
+/* ==================== 设置按钮（齿轮） ==================== */
+.settings-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    z-index: 9990;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+/* 齿轮图标单独旋转，不影响tooltip */
+.settings-btn .gear-icon {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.settings-btn:hover .gear-icon {
+    transform: rotate(90deg);
+}
+
+.settings-btn.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+}
+
+.settings-btn.active .gear-icon {
+    transform: rotate(180deg);
+}
+
+/* ==================== Tooltip（修复跟随旋转问题） ==================== */
+.settings-btn::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    /* 确保tooltip不继承旋转 */
+    transform-origin: center;
+}
+
+.settings-btn::after {
+    content: '';
+    position: absolute;
+    right: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: var(--border-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.settings-btn:hover::before,
+.settings-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==================== 主题菜单遮罩 ==================== */
+.theme-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9980;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.theme-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==================== 主题菜单 ==================== */
+.theme-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 340px;
+    max-width: 90vw;
+    height: 100vh;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border-color);
+    z-index: 9985;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.theme-menu.active {
+    transform: translateX(0);
+}
+
+/* ==================== 菜单头部 ==================== */
+.theme-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background: var(--bg-secondary);
+    z-index: 10;
+}
+
+.theme-menu-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.theme-menu-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    transition: all 0.2s ease;
+}
+
+.theme-menu-close:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+/* ==================== 菜单内容 ==================== */
+.theme-menu-content {
+    padding: 20px 24px;
+}
+
+.theme-section {
+    margin-bottom: 28px;
+}
+
+.theme-section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+/* ==================== 主题选项（修复视觉反馈） ==================== */
+.theme-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 2px solid transparent;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-option:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-color);
+}
+
+/* 修复：选中状态使用边框高亮 */
+.theme-option.active {
+    border-color: var(--accent-primary);
+    background: var(--bg-tertiary);
+}
+
+/* 修复：预览框样式 */
+.theme-preview {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.theme-option:hover .theme-preview,
+.theme-option.active .theme-preview {
+    border-color: var(--accent-primary);
+}
+
+/* 各主题预览 */
+.theme-preview-dark {
+    background: linear-gradient(135deg, #1a1a2e 50%, #ff6b35 50%);
+}
+
+.theme-preview-light {
+    background: linear-gradient(135deg, #ffffff 50%, #0066cc 50%);
+}
+
+.theme-preview-ocean {
+    background: linear-gradient(135deg, #0d1b2a 50%, #ff6b35 50%);
+}
+
+.theme-preview-vibrant {
+    background: linear-gradient(135deg, #231c18 50%, #ff7a45 50%);
+}
+
+.theme-preview-elegant {
+    background: linear-gradient(135deg, #1a1620 50%, #9b7cb6 50%);
+}
+
+/* 选中标记 */
+.theme-preview::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.2s ease;
+}
+
+.theme-option.active .theme-preview::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 主题信息 */
+.theme-info {
+    flex: 1;
+}
+
+.theme-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+    font-size: 0.95rem;
+}
+
+.theme-desc {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+/* 勾选图标 */
+.theme-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.theme-option.active .theme-check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ==================== 恢复默认按钮 ==================== */
+.reset-theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.reset-theme-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-primary);
+}
+
+.reset-theme-btn .icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+}
+
+.reset-theme-btn:hover .icon {
+    color: var(--accent-primary);
+}
+
+/* ==================== 移动端适配 ==================== */
+@media (max-width: 480px) {
+    .settings-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .theme-menu {
+        width: 100%;
+        max-width: none;
+    }
+
+    .theme-menu-header {
+        padding: 16px 20px;
+    }
+
+    .theme-menu-content {
+        padding: 16px 20px;
+    }
+}

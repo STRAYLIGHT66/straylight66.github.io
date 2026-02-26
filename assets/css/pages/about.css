@@ -1,0 +1,286 @@
+/**
+ * Team Blog - 关于页面样式
+ */
+
+.page-header {
+    padding: 100px 0 50px;
+    background: var(--bg-secondary);
+    text-align: center;
+}
+
+.page-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.page-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+}
+
+/* ==================== 我们的故事 ==================== */
+.story-section {
+    padding: 70px 0;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.story-image {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+}
+
+.story-content h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.story-content p {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    line-height: 1.8;
+}
+
+/* ==================== 我们的愿景 ==================== */
+.vision-section {
+    padding: 70px 0;
+    background: var(--bg-secondary);
+}
+
+.vision-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vision-header h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.vision-header p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.vision-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 36px 28px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.vision-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 20px 50px var(--shadow-color);
+}
+
+.vision-icon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    font-size: 1.75rem;
+    color: white;
+}
+
+.vision-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.vision-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ==================== 数据统计 ==================== */
+.stats-section {
+    padding: 70px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    font-size: 1.35rem;
+    color: var(--accent-primary);
+}
+
+/* ==================== 联系我们 ==================== */
+.contact-section {
+    padding: 70px 0;
+    background: var(--bg-secondary);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-info h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.contact-info > p {
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+}
+
+.contact-items {
+    margin-bottom: 28px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.contact-item i {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border-radius: 50%;
+    color: var(--accent-primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.contact-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.contact-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.contact-social {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-social .social-link {
+    width: 42px;
+    height: 42px;
+}
+
+/* 联系表单 */
+.contact-form-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.contact-form .btn {
+    width: 100%;
+    margin-top: 4px;
+}
+
+/* ==================== 移动端适配 ==================== */
+@media (max-width: 1024px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .story-image {
+        order: -1;
+    }
+    
+    .vision-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form-wrapper {
+        padding: 24px;
+    }
+}
