@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队 - Team Blog</title>
+    <meta name="description" content="认识我们优秀的团队成员">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 基础样式 -->
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+    <link rel="stylesheet" href="./assets/css/animations.css">
+
+    <!-- 组件样式 -->
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/search.css">
+    <link rel="stylesheet" href="./assets/css/theme-switcher.css">
+
+    <!-- 页面样式 -->
+    <link rel="stylesheet" href="./assets/css/pages/team.css">
+</head>
+
+<body>
+    <!-- 页面加载器 -->
+    <div class="page-loader">
+        <div class="fluent-loader">
+            <div class="fluent-loader-ring"></div>
+            <div class="fluent-loader-ring"></div>
+            <div class="fluent-loader-ring"></div>
+        </div>
+        <div class="loader-text">Loading</div>
+    </div>
+
+    <div class="page-wrapper">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="container header-content">
+                <a href="./index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <span>Team Blog</span>
+                </a>
+
+                <nav class="nav">
+                    <a href="./index.html" class="nav-link">首页</a>
+                    <a href="./blog.html" class="nav-link">博客</a>
+                    <a href="./team.html" class="nav-link active">团队</a>
+                    <a href="./about.html" class="nav-link">关于</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="btn btn-icon search-toggle" aria-label="搜索">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="mobile-menu-btn" aria-label="菜单">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 移动端菜单 -->
+        <nav class="mobile-nav">
+            <a href="./index.html" class="mobile-nav-link">首页</a>
+            <a href="./blog.html" class="mobile-nav-link">博客</a>
+            <a href="./team.html" class="mobile-nav-link active">团队</a>
+            <a href="./about.html" class="mobile-nav-link">关于</a>
+        </nav>
+
+        <!-- 搜索遮罩 -->
+        <div class="search-overlay">
+            <div class="search-container">
+                <button class="search-close" aria-label="关闭搜索">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="搜索文章...">
+                </div>
+                <div class="search-results"></div>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 页面标题 -->
+            <section class="page-header">
+                <div class="container">
+                    <h1 class="page-title reveal-on-scroll">我们的团队</h1>
+                    <p class="page-description reveal-on-scroll">一群热爱技术与设计的创造者</p>
+                </div>
+            </section>
+
+            <!-- 团队介绍 -->
+            <section class="section team-intro">
+                <div class="container">
+                    <div class="intro-grid">
+                        <div class="intro-content reveal-on-scroll">
+                            <h2>关于我们</h2>
+                            <p>请输入文本 | 请输入文本 | 请输入文本 | 请输入文本 | 请输入文本 | 请输入文本</p>
+                            <p>请输入文本 | 请输入文本 | 请输入文本 | 请输入文本</p>
+                            <div class="intro-stats">
+                                <div class="intro-stat">
+                                    <div class="stat-value">6</div>
+                                    <div class="stat-label">团队成员</div>
+                                </div>
+                                <div class="intro-stat">
+                                    <div class="stat-value">114514</div>
+                                    <div class="stat-label">发布文章</div>
+                                </div>
+                                <div class="intro-stat">
+                                    <div class="stat-value">114514</div>
+                                    <div class="stat-label">年经验</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-image reveal-on-scroll">
+                            <img src="https://picsum.photos/600/400?random=team" alt="团队协作">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 团队成员 -->
+            <section class="section team-members">
+                <div class="container">
+                    <h2 class="section-title reveal-on-scroll">核心成员</h2>
+                    <div class="members-grid" id="members-grid">
+                        <!-- 成员将通过 JS 加载 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 加入我们 -->
+            <section class="section join-us">
+                <div class="container">
+                    <div class="join-card reveal-on-scroll">
+                        <div class="join-content">
+                            <h2>加入我们</h2>
+                            <p>请输入文本 | 请输入文本 | 请输入文本 | 请输入文本</p>
+                            <a href="mailto:join@teamblog.com" class="btn btn-primary btn-lg">
+                                <i class="fas fa-envelope"></i>
+                                联系我们
+                            </a>
+                        </div>
+                        <div class="join-decoration">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-feather-alt"></i>
+                            </div>
+                            <span>Team Blog</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>快速链接</h3>
+                        <ul>
+                            <li><a href="./index.html">首页</a></li>
+                            <li><a href="./blog.html">博客</a></li>
+                            <li><a href="./team.html">团队</a></li>
+                            <li><a href="./about.html">关于</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>联系我们</h3>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> contact@teamblog.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Team Blog. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <button class="back-to-top" aria-label="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript 模块 -->
+    <script src="./assets/js/modules/api.js"></script>
+    <script src="./assets/js/modules/theme.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/pages/team.js"></script>
+</body>
+
+</html>

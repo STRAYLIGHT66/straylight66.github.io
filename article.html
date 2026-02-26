@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章详情 - Team Blog</title>
+    <meta name="description" content="阅读我们的技术文章">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 基础样式 -->
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+    <link rel="stylesheet" href="./assets/css/animations.css">
+
+    <!-- 组件样式 -->
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/search.css">
+    <link rel="stylesheet" href="./assets/css/theme-switcher.css">
+
+    <!-- 页面样式 -->
+    <link rel="stylesheet" href="./assets/css/pages/article.css">
+</head>
+
+<body>
+    <!-- 页面加载器 -->
+    <div class="page-loader">
+        <div class="fluent-loader">
+            <div class="fluent-loader-ring"></div>
+            <div class="fluent-loader-ring"></div>
+            <div class="fluent-loader-ring"></div>
+        </div>
+        <div class="loader-text">Loading</div>
+    </div>
+
+    <div class="page-wrapper">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="container header-content">
+                <a href="./index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <span>Team Blog</span>
+                </a>
+
+                <nav class="nav">
+                    <a href="./index.html" class="nav-link">首页</a>
+                    <a href="./blog.html" class="nav-link active">博客</a>
+                    <a href="./team.html" class="nav-link">团队</a>
+                    <a href="./about.html" class="nav-link">关于</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="btn btn-icon search-toggle" aria-label="搜索">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="mobile-menu-btn" aria-label="菜单">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 移动端菜单 -->
+        <nav class="mobile-nav">
+            <a href="./index.html" class="mobile-nav-link">首页</a>
+            <a href="./blog.html" class="mobile-nav-link active">博客</a>
+            <a href="./team.html" class="mobile-nav-link">团队</a>
+            <a href="./about.html" class="mobile-nav-link">关于</a>
+        </nav>
+
+        <!-- 搜索遮罩 -->
+        <div class="search-overlay">
+            <div class="search-container">
+                <button class="search-close" aria-label="关闭搜索">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="搜索文章...">
+                </div>
+                <div class="search-results"></div>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 文章头部 -->
+            <section class="article-header" id="article-header">
+                <div class="article-header-bg">
+                    <img src="" alt="" id="header-image">
+                    <div class="article-header-overlay"></div>
+                </div>
+                <div class="container article-header-content">
+                    <div class="article-category" id="article-category"></div>
+                    <h1 class="article-title" id="article-title"></h1>
+                    <div class="article-meta" id="article-meta"></div>
+                </div>
+            </section>
+
+            <!-- 文章内容 -->
+            <section class="section article-section">
+                <div class="container">
+                    <div class="article-layout">
+                        <!-- 文章主体 -->
+                        <article class="article-main">
+                            <div class="article-content" id="article-content">
+                                <!-- 内容将通过 JS 加载 -->
+                            </div>
+
+                            <!-- 文章标签 -->
+                            <div class="article-tags" id="article-tags"></div>
+
+                            <!-- 文章操作 -->
+                            <div class="article-actions">
+                                <button class="action-btn like-btn" id="like-btn">
+                                    <i class="far fa-heart"></i>
+                                    <span>点赞</span>
+                                    <span class="count" id="like-count">0</span>
+                                </button>
+                                <button class="action-btn share-btn" id="share-btn">
+                                    <i class="fas fa-share-alt"></i>
+                                    <span>分享</span>
+                                </button>
+                                <button class="action-btn bookmark-btn" id="bookmark-btn">
+                                    <i class="far fa-bookmark"></i>
+                                    <span>收藏</span>
+                                </button>
+                            </div>
+
+                            <!-- 作者信息 -->
+                            <div class="author-card" id="author-card"></div>
+
+                            <!-- 相关文章 -->
+                            <div class="related-posts">
+                                <h3 class="related-title">相关文章</h3>
+                                <div class="related-grid" id="related-posts"></div>
+                            </div>
+                        </article>
+
+                        <!-- 侧边栏 -->
+                        <aside class="article-sidebar">
+                            <!-- 目录 -->
+                            <div class="sidebar-widget toc-widget reveal-on-scroll">
+                                <h3 class="widget-title">
+                                    <i class="fas fa-list"></i>
+                                    文章目录
+                                </h3>
+                                <nav class="article-toc" id="article-toc">
+                                    <!-- 目录将通过 JS 生成 -->
+                                </nav>
+                            </div>
+
+                            <!-- 热门文章 -->
+                            <div class="sidebar-widget reveal-on-scroll">
+                                <h3 class="widget-title">
+                                    <i class="fas fa-fire"></i>
+                                    热门文章
+                                </h3>
+                                <ul class="popular-list" id="popular-posts">
+                                    <!-- 将通过 JS 加载 -->
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-feather-alt"></i>
+                            </div>
+                            <span>Team Blog</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>快速链接</h3>
+                        <ul>
+                            <li><a href="./index.html">首页</a></li>
+                            <li><a href="./blog.html">博客</a></li>
+                            <li><a href="./team.html">团队</a></li>
+                            <li><a href="./about.html">关于</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>联系我们</h3>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> contact@teamblog.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Team Blog. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <button class="back-to-top" aria-label="返回顶部">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript 模块 -->
+    <script src="./assets/js/modules/api.js"></script>
+    <script src="./assets/js/modules/theme.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/pages/article.js"></script>
+</body>
+
+</html>
